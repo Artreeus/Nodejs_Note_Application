@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 
-const app = expres();
+const app = express();
 const port = 5000 || Process.env.PORT;
 
 app.use(express.urlencoded({extended : true}));
@@ -19,9 +19,9 @@ app.use(expressLayouts);
 app.set('layout','./layouts/main');
 app.set('view engine','ejs');
 
-app.get('/', function(req,res){
-    res.render('index');
-} );
+// Routes 
+
+app.use('/', require('./server/routes/index'));
 
 app.listen(port, ()=>{
     console.log(`App is running on port ${port}`);
