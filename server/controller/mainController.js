@@ -6,7 +6,10 @@ exports.homepage = async (req, res) => {
     description: "Nodejs Notes App",
   };
 
-  res.render("index", locals);
+  res.render("index", {
+    locals,
+    layout: '../views/layouts/front-page'
+  });
 };
 
 
