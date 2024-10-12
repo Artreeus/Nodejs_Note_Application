@@ -19,9 +19,16 @@ app.use(expressLayouts);
 app.set('layout','./layouts/main');
 app.set('view engine','ejs');
 
+
 // Routes 
 
 app.use('/', require('./server/routes/index'));
+
+// handeling 404
+app.get('*', function(req,res){
+    res.status(404).render('404')
+})
+
 
 app.listen(port, ()=>{
     console.log(`App is running on port ${port}`);
